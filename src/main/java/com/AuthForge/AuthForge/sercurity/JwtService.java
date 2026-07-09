@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import javax.crypto.SecretKey;
 import java.security.Key;
 import java.time.Instant;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.UUID;
 
@@ -83,5 +84,9 @@ public class JwtService {
         return Keys.hmacShaKeyFor(
                 Decoders.BASE64.decode(jwtSecret)
         );
+    }
+
+    public LocalDateTime getRefreshTokenExpiry(){
+        return LocalDateTime.now().plusSeconds(refreshTokenExpiryDays*24*60*60);
     }
 }

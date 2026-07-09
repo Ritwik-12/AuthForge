@@ -3,6 +3,7 @@ package com.AuthForge.AuthForge.controller;
 import com.AuthForge.AuthForge.dto.AuthResponse;
 import com.AuthForge.AuthForge.dto.LoginRequest;
 import com.AuthForge.AuthForge.dto.RegisterRequest;
+import com.AuthForge.AuthForge.dto.TokenRefreshRequest;
 import com.AuthForge.AuthForge.service.AuthService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -30,5 +31,10 @@ public class AuthController {
     public ResponseEntity<AuthResponse> login(@Valid @RequestBody LoginRequest request) {
         AuthResponse response = authService.login(request);
         return ResponseEntity.ok(response);
+    }
+
+    @PostMapping("/refresh")
+    public ResponseEntity<AuthResponse> refresh(@Valid @RequestBody TokenRefreshRequest request){
+            return ResponseEntity.ok(authService.refresh(request));
     }
 }
