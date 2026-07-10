@@ -34,7 +34,7 @@ public class JwtAuthFilter extends OncePerRequestFilter {
     private UserRepository userRepository;
 
 
-    private static final Logger logger= LoggerFactory.getLogger(JwtAuthFilter.class)
+    private static final Logger logger= LoggerFactory.getLogger(JwtAuthFilter.class);
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
@@ -51,6 +51,7 @@ public class JwtAuthFilter extends OncePerRequestFilter {
              Claims claims=jwtService.parseClaims(token);
              if(!"access".equals(claims.get("type",String.class))){
                  filterChain.doFilter(request,response);
+
                  return;
              }
 

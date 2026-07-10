@@ -24,6 +24,7 @@ spring:
     jwtSecret: jaisdfqower9werikdnfvoijer239r0wfnsdnfasjrfr9q340uosdnmfeirljdfnugto
     jwtAccessExpirationInMs: 3000000000000
     jwtRefreshExpirationInMs: 70000000000
+    refreshTokenExpiryDays: 15
 
 server:
   port: 9090

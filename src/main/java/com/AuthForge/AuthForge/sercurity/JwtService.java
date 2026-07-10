@@ -28,6 +28,10 @@ public class JwtService {
 
           @Value("${spring.app.jwtRefreshExpirationInMs}")
         private  long jwtRefreshExpirationInMs;
+
+          @Value("${spring.app.refreshTokenExpiryDays}")
+          private Integer refreshTokenExpiryDays;
+
     //generateaccess token
 
     public String generateAccessToken(UUID userId, String email, Role role){

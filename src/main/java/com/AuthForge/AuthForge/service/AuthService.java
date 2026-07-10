@@ -60,6 +60,7 @@ public class AuthService {
     @Transactional
     public AuthResponse refresh(TokenRefreshRequest request){
 
+        System.out.println("inside the refresh service");
         RefreshToken stored=refreshTokenRepository.findByToken(request.getRefreshToken())
                 .orElseThrow(()->new InvalidRefreshTokenException("refresh Token not found"));
 
